@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Data</title>
+    <link rel="stylesheet" href="./css/site.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <h1>Covid19 Data</h1>
+    <h4 id="unvaccinatedCountDisplay"></h4>
+    <canvas id="myChart"></canvas>
+
+    <button onclick="openForm()" class="add-member-button">Add member</button>
+
+    <div class="form-popup" id="addmemberForm">
+        <form onsubmit="saveNewMember()">
+            <button type="button" onclick="closeForm()" class="btn btn-danger close-button">X</button>
+            <button type="button" class="btn btn-primary upload-image-button" onclick="UploadImage(this)">Upload Image</button><br>
+
+            <label for="memberId">Member ID:</label>
+            <input type="text" pattern="^\d{9}$" id="memberId" name="memberId" class="form-control" required><br>
+    
+            <label for="firstName">First Name:</label>
+            <input type="text" pattern="^[a-zA-Z\s]+$" id="firstName" name="firstName" class="form-control" required><br>
+    
+            <label for="lastName">Last Name:</label>
+            <input type="text" pattern="^[a-zA-Z\s]+$" id="lastName" name="lastName" class="form-control" required><br>
+    
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" required><br>
+    
+            <label for="phone">Landline phone:</label>
+            <input type="text" pattern="^0\d{0,2}-?\d{7}$" id="phone" name="phone" class="form-control" ><br>
+    
+            <label for="mobilePhone">Mobile phone:</label>
+            <input type="text" pattern="^05\d(-|\s)?\d{7}$" id="mobilePhone" name="mobilePhone" class="form-control"required ><br>
+    
+            <label for="city">City:</label>
+            <input type="text" pattern="^[a-zA-Z\s]+$" id="city" name="city" class="form-control" required><br>
+    
+            <label for="street">Street:</label>
+            <input type="text" pattern="^[a-zA-Z\s]+$" id="street" name="street" class="form-control" required><br>
+    
+            <label for="houseNumber">House Number:</label>
+            <input type="number" id="houseNumber" name="houseNumber" class="form-control" required><br>
+    
+            <label for="illnessDate">Illness Date:</label>
+            <input type="date" id="illnessDate" name="illnessDate" class="form-control"><br>
+    
+            <label for="recoveryDate">Recovery Date:</label>
+            <input type="date" id="recoveryDate" name="recoveryDate" class="form-control"><br>
+    
+            <div id="vaccinationFields">
+            </div>
+    
+            <button type="button" onclick="addVaccinationForm()" class="btn btn-info">Add Vaccination</button><br><br>
+    
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+    <script src="./js/members.js"></script>
+    <script src="./js/vaccination.js"></script>
+    <script src="./js/memberActions.js"></script>
+    <script src="./js/vaccinationActions.js"></script>
+    <script src="./js/Statistics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
